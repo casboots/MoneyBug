@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="card">
+    <div class="card mb-3">
         <div class="card-header">
             <a href="/table/create" class="btn btn-primary">Create Table</a>
         </div>
         <div class="card-body">
             @if(count($tables) > 0)
                 @foreach($tables as $table)
-                    <div class="card">
+                    <div class="card mb-3">
                     <a href="/table/{{$table->tableId}}" class="text-dark">
                         <div class="card-body">
                             <h5 class="card-title">{{$table->name}}</h5>
