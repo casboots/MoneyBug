@@ -47,3 +47,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin');
+
+Route::get('/category', 'CategoryController@index')->middleware('is_admin')->name('admin');
+Route::post('/category', 'CategoryController@store')->middleware('is_admin')->name('admin');
+Route::get('/category/create', 'CategoryController@create')->middleware('is_admin')->name('admin');
+Route::get('/category/{categoryId}', 'CategoryController@show')->middleware('is_admin')->name('admin');
+Route::get('/category/{categoryId}/edit', 'CategoryController@edit')->middleware('is_admin')->name('admin');
+Route::put('/category/{categoryId}', 'CategoryController@update')->middleware('is_admin')->name('admin');
+Route::get('/category/{categoryId}', 'CategoryController@delete')->middleware('is_admin')->name('admin');

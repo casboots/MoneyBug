@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\Category;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categoryInfo = DB::table('categories')->get();
+        dd($categoryInfo);
     }
 
     /**
