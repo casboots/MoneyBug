@@ -11,47 +11,6 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
-
-Route::resource('category', 'CategoryController');
-
-
-//Tables
-Route::get('/table', 'TableController@index');
-Route::post('/table', 'TableController@store');
-Route::get('/table/create', 'TableController@create');
-Route::get('/table/{tableId}/show', 'TableController@show');
-Route::get('/table/{tableId}/edit', 'TableController@edit');
-Route::put('/table/{tableId}', 'TableController@update');
-Route::delete('/table/{tableId}', 'TableController@delete');
-
-//Finances
-Route::get('/table/{tableId}', 'FinanceController@index');
-Route::post('/finance', 'FinanceController@store');
-Route::get('/table/{tableId}/create', 'FinanceController@create');
-Route::get('/table/{tableId}/item/{itemId}', 'FinanceController@show');
-Route::get('/table/{tableId}/item/{itemId}/edit', 'FinanceController@edit');
-Route::put('/table/{tableId}/item/{itemId}', 'FinanceController@update');
-Route::delete('/table/{tableId}/item/{itemId}', 'FinanceController@delete');
-
-//Persons
-Route::get('/table/{tableId}/persons', 'PersonController@index');
-Route::post('/person', 'PersonController@store');
-Route::get('/table/{tableId}/person/create', 'PersonController@create');
-Route::get('/table/{tableId}/person/{personId}', 'PersonController@show');
-Route::get('/table/{tableId}/person/{personId}/edit', 'PersonController@edit');
-Route::put('/table/{tableId}/person/{personId}', 'PersonController@update');
-Route::delete('/table/{tableId}/person/{personId}', 'PersonController@delete');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin');
-
-Route::get('/category', 'CategoryController@index')->middleware('is_admin')->name('admin');
-Route::post('/category', 'CategoryController@store')->middleware('is_admin')->name('admin');
-Route::get('/category/create', 'CategoryController@create')->middleware('is_admin')->name('admin');
-Route::get('/category/{categoryId}', 'CategoryController@show')->middleware('is_admin')->name('admin');
-Route::get('/category/{categoryId}/edit', 'CategoryController@edit')->middleware('is_admin')->name('admin');
-Route::put('/category/{categoryId}', 'CategoryController@update')->middleware('is_admin')->name('admin');
-Route::get('/category/{categoryId}', 'CategoryController@delete')->middleware('is_admin')->name('admin');
+Route::get('/', function () {
+    return view('welcome');
+});
